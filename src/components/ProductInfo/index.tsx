@@ -29,6 +29,11 @@ const ProductInfo : React.FC<ProductInfoProps>  = (props) => {
     salePrice = props.product.childSkus[0].salePrice;
   }
 
+  var largeImage = "";
+  if (props.product !== undefined && props.product.childSkus !== undefined && props.product.childSkus[0] !== undefined) {
+    largeImage = props.product.childSkus[0].largeImageUrl;
+  }
+
   var colors : any[] = [];
   var sizes : any[] = [];
 
@@ -52,7 +57,7 @@ const ProductInfo : React.FC<ProductInfoProps>  = (props) => {
         <Grid item lg={4}>
           <Paper className="largeImage">
             <img
-              src="https://dummyimage.com/500x500/000/0011ff"
+              src={largeImage}
               alt={props.product.name}
             />
           </Paper>
@@ -120,4 +125,4 @@ const ProductInfo : React.FC<ProductInfoProps>  = (props) => {
   );
 };
 
-export default ProductInfo;
+export default ProductInfo ;
